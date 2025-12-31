@@ -1,24 +1,22 @@
-🧑‍💼 Employee Management System (Django CRUD)
+FakeProject – Django CRUD Application
 
-A simple Employee Management System built using Django that demonstrates full CRUD (Create, Read, Update, Delete) operations with a clean UI and Django ModelForm.
+A simple Django-based CRUD (Create, Read, Update, Delete) web application designed for learning and practice. This project demonstrates core Django concepts such as models, forms, views, templates, and database operations.
 
 🚀 Features
 
-➕ Add new employees
+➕ Add new records
 
-📋 View employee list
+📄 View records
 
-✏️ Update employee details
+✏️ Update existing records
 
-❌ Delete employee records
+❌ Delete records
 
-🛡 CSRF protection enabled
+🎨 User-friendly HTML & CSS UI
 
-🧩 Uses Django ModelForm
+🔒 CSRF protection enabled
 
-🎨 Clean and responsive UI with custom CSS
-
-🛠 Tech Stack
+🛠️ Technologies Used
 
 Backend: Python, Django
 
@@ -26,104 +24,57 @@ Frontend: HTML, CSS
 
 Database: SQLite (default Django DB)
 
-Tools: Django ORM, GitHub
-
 📂 Project Structure
-employee_project/
+fakeproject/
 │
 ├── myapp/
 │   ├── migrations/
 │   ├── templates/
 │   │   └── myapp/
+│   │       ├── insert.html
 │   │       ├── update.html
-│   │       ├── index.html
+│   │       └── display.html
 │   ├── models.py
 │   ├── forms.py
 │   ├── views.py
+│   └── urls.py
 │
-├── db.sqlite3
+├── fakeproject/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
 ├── manage.py
 └── README.md
 
-🧑‍💻 Model Used
-class Employee(models.Model):
-    name = models.CharField(max_length=100)
-    age = models.IntegerField()
-    place = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+⚙️ Installation & Setup
+1️⃣ Clone the Repository
+git clone https://github.com/Deepaknani07/fakeproject.git
+cd fakeproject
 
-    def __str__(self):
-        return self.name
-
-🔄 Update Functionality
-
-Uses Django ModelForm
-
-Pre-fills employee data
-
-Updates record without creating duplicates
-
-def update_view(request, id):
-    e = Employee.objects.get(id=id)
-
-    if request.method == "POST":
-        form = EmployeeForm(request.POST, instance=e)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    else:
-        form = EmployeeForm(instance=e)
-
-    return render(request, 'myapp/update.html', {'form': form})
-
-▶️ How to Run the Project
-
-Clone the repository
-
-git clone https://github.com/your-username/employee-management-django.git
-
-
-Navigate to project
-
-cd employee-management-django
-
-
-Create virtual environment (optional)
-
+2️⃣ Create Virtual Environment (Optional but Recommended)
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\activate   # Windows
 
-
-Install Django
-
+3️⃣ Install Django
 pip install django
 
-
-Run migrations
-
+4️⃣ Run Migrations
 python manage.py makemigrations
 python manage.py migrate
 
-
-Start server
-
+5️⃣ Start Development Server
 python manage.py runserver
 
-
-Open browser:
-
+6️⃣ Open in Browser
 http://127.0.0.1:8000/
 
-📌 Learning Outcomes
+🧪 Usage
 
-Django Models & ORM
+Use the Insert page to add data
 
-ModelForm usage
+View all records on the Display page
 
-CRUD operations
+Edit data using the Update option
 
-Form validation
-
-Template rendering
-
-Clean project structure
+Remove records using Delete
